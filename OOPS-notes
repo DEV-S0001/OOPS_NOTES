@@ -1,0 +1,85 @@
+📘 What Is Object-Oriented Programming (OOP)?
+OOP is a programming style where everything revolves around objects. These objects combine data and functions that operate on that data—just like how real-world entities work.
+
+🎯 Why Learn OOP?
+Helps organize complex code
+
+Makes programs more readable, reusable, and scalable
+
+Common in job interviews and real-world projects
+
+🧱 1. Class and Object
+Term	Meaning	Example
+Class	Blueprint or template for creating objects	class Car:
+Object	Instance of a class with real values	my_car = Car()
+python
+class Car:
+    def drive(self):
+        print("Vroom!")
+
+my_car = Car()
+my_car.drive()
+🛡️ 2. Encapsulation
+Wrapping data and functions together and controlling access with private/public rules.
+
+python
+class Person:
+    def __init__(self, name):
+        self.__name = name  # private variable
+
+    def get_name(self):
+        return self.__name
+🧠 Interview Tip: Say “Encapsulation protects internal states using private variables and getters/setters.”
+
+🧬 3. Inheritance
+A class can inherit properties and methods from another class.
+
+python
+class Animal:
+    def speak(self):
+        print("Generic sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof!")
+🧠 Interview Tip: Explain how inheritance promotes code reuse and hierarchy building.
+
+🌀 4. Polymorphism
+One function behaves differently depending on the object calling it.
+
+python
+class Cat:
+    def speak(self):
+        print("Meow!")
+
+class Cow:
+    def speak(self):
+        print("Moo!")
+
+def make_sound(animal):
+    animal.speak()
+
+make_sound(Cat())
+make_sound(Cow())
+🧠 Interview Tip: Say “Polymorphism lets one function work on many types.”
+
+🌪️ 5. Abstraction
+Hides complex details and shows only the essentials.
+
+python
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def drive(self):
+        pass
+🧠 Interview Tip: “Abstraction separates what an object does from how it does it.”
+
+🧠 Summary Table
+Concept	Role in OOP	Real-World Analogy
+Class	Blueprint for objects	Architectural plan
+Object	Instance of class	Actual building
+Encapsulation	Data protection	Bank account access rules
+Inheritance	Reuse features from other classes	Child inherits traits from parent
+Polymorphism	Same action, different behavior	Button clicks open different apps
+Abstraction	Hide inner complexity	Driving a car without knowing engine
