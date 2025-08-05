@@ -1,17 +1,15 @@
 📘 What Is Object-Oriented Programming (OOP)?
-OOP is a programming style where everything revolves around objects. These objects combine data and functions that operate on that data—just like how real-world entities work.
+OOP is a programming style where everything revolves around objects. 
+These objects combine data and functions that operate on that data—just like how real-world entities work.
 
 🎯 Why Learn OOP?
 Helps organize complex code
-
 Makes programs more readable, reusable, and scalable
 
-Common in job interviews and real-world projects
-
 🧱 1. Class and Object
-Term	Meaning	Example
-Class	Blueprint or template for creating objects	class Car:
-Object	Instance of a class with real values	my_car = Car()
+Term	 Meaning	                                                               Example
+Class	 Blueprint or template for creating objects,self defined datatype          class Car:
+Object	 Instance of a class with real values,everything in python is an object	   my_car = Car()
 python
 class Car:
     def drive(self):
