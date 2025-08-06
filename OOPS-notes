@@ -262,3 +262,109 @@ get_total_cars() → class method (how many cars exist)
 convert_km_to_miles() → static method (just math)
 
 speed → property (calculated from engine and gear)
+
+🧙‍♂️ Dunder (Magic) Methods in Python
+✅ What Are Dunder Methods?
+Dunder stands for Double Underscore (e.g., __init__, __add__)
+
+Also called magic methods
+
+Used to define custom behavior for built-in operations like printing, adding, indexing, comparing, etc.
+
+🔧 Categories of Dunder Methods
+1. 📦 Object Lifecycle Methods
+Method	Purpose
+__init__	Constructor (initializes object)
+__del__	Destructor (called when object is deleted)
+__new__	Creates a new instance (rarely used)
+2. 🖨️ String Representation
+Method	Purpose
+__str__	User-friendly string (print(obj))
+__repr__	Developer-friendly string (repr(obj))
+3. ➕ Arithmetic Operator Overloading
+Operator	Method	Description
++	__add__	Addition
+-	__sub__	Subtraction
+*	__mul__	Multiplication
+/	__truediv__	Division
+//	__floordiv__	Floor Division
+%	__mod__	Modulo
+**	__pow__	Exponentiation
+4. 🔁 In-Place Arithmetic (e.g., +=, -=)
+Operator	Method	Description
++=	__iadd__	In-place addition
+-=	__isub__	In-place subtraction
+*=	__imul__	In-place multiplication
+/=	__itruediv__	In-place division
+5. 🔍 Comparison Operators
+Operator	Method	Description
+==	__eq__	Equal to
+!=	__ne__	Not equal to
+<	__lt__	Less than
+<=	__le__	Less than or equal to
+>	__gt__	Greater than
+>=	__ge__	Greater than or equal to
+6. 📚 Container Behavior
+Method	Purpose
+__len__	Length of object (len(obj))
+__getitem__	Indexing (obj[i])
+__setitem__	Assigning to index (obj[i] = x)
+__delitem__	Deleting index (del obj[i])
+__contains__	Membership test (x in obj)
+7. 🔄 Iteration
+Method	Purpose
+__iter__	Returns iterator
+__next__	Returns next item
+8. 📞 Callable Objects
+Method	Purpose
+__call__	Makes object callable (obj())
+9. 🧵 Context Managers
+Method	Purpose
+__enter__	Start of with block
+__exit__	End of with block
+🔁 Method Overloading in Python
+✅ What Is Method Overloading?
+Defining multiple methods with the same name but different parameters
+
+Python does not support traditional overloading
+
+You can simulate it using:
+
+Default arguments
+
+*args and **kwargs
+
+🧪 Example Using Default Arguments
+python
+class Calculator:
+    def add(self, a, b=0, c=0):
+        return a + b + c
+🧪 Example Using *args
+python
+class Calculator:
+    def add(self, *args):
+        return sum(args)
+🧪 Example: Using Dunder Methods
+python
+class Number:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return Number(self.value + other.value)
+
+    def __sub__(self, other):
+        return Number(self.value - other.value)
+
+    def __mul__(self, other):
+        return Number(self.value * other.value)
+
+    def __str__(self):
+        return str(self.value)
+🔧 Usage:
+python
+a = Number(10)
+b = Number(5)
+print(a + b)  # Output: 15
+print(a - b)  # Output: 5
+print(a * b)  # Output: 50
