@@ -19,7 +19,6 @@ my_car = Car()
 my_car.drive()
 🛡️ 2. Encapsulation
 Wrapping data and functions together and controlling access with private/public rules.
-
 python
 class Person:
     def __init__(self, name):
@@ -81,3 +80,13 @@ Encapsulation	Data protection	Bank account access rules
 Inheritance	Reuse features from other classes	Child inherits traits from parent
 Polymorphism	Same action, different behavior	Button clicks open different apps
 Abstraction	Hide inner complexity	Driving a car without knowing engine
+
+
+🎯 Summary Table
+Term	     What It Means	                         Example
+Class	     Blueprint for creating objects	         class Dog:
+Object	     Real thing made from a class	         my_dog = Dog()
+Instance	 Another word for object	             Same as my_dog
+Attribute	 Data stored in an object	             my_dog.name
+Method	     Function that belongs to a class	     my_dog.bark()
+
