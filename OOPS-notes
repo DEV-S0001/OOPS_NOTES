@@ -82,6 +82,74 @@ Polymorphism	Same action, different behavior	Button clicks open different apps
 Abstraction	Hide inner complexity	Driving a car without knowing engine
 
 
+
+🏛️ Class
+✅ What it is:
+A class is like a blueprint or template for creating things (objects).
+
+🧪 Example:
+python
+class Dog:
+    pass
+This is a blueprint for a dog. It doesn’t do anything yet, but it defines what a dog could be.
+
+🐶 Object (or Instance)
+✅ What it is:
+An object is a real thing created from a class. An instance is just another word for an object.
+
+🧪 Example:
+python
+my_dog = Dog()
+Now you’ve made a real dog from the blueprint. my_dog is an object or instance of the Dog class.
+
+🎒 Attributes
+✅ What they are:
+Attributes are like the characteristics or data of an object.
+
+🧪 Example:
+python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+Now when you create a dog:
+
+python
+my_dog = Dog("Buddy", 3)
+print(my_dog.name)  # Output: Buddy
+print(my_dog.age)   # Output: 3
+name and age are attributes of my_dog.
+
+🛠️ Methods
+✅ What they are:
+Methods are like the actions or behaviors an object can do. They are functions defined inside a class.
+
+🧪 Example:
+python
+class Dog:
+    def bark(self):
+        print("Woof!")
+python
+my_dog = Dog()
+my_dog.bark()  # Output: Woof!
+bark() is a method of the Dog class.
+
+You call it on an object like my_dog.bark().
+
+🧩 Putting It All Together
+python
+class Dog:
+    def __init__(self, name, age):  # Constructor method
+        self.name = name            # Attribute
+        self.age = age              # Attribute
+
+    def bark(self):                 # Method
+        print(f"{self.name} says Woof!")
+python
+my_dog = Dog("Buddy", 3)  # Object / Instance
+my_dog.bark()             # Method call
+print(my_dog.age)         # Attribute access
+
 🎯 Summary Table
 Term	     What It Means	                         Example
 Class	     Blueprint for creating objects	         class Dog:
@@ -90,3 +158,107 @@ Instance	 Another word for object	             Same as my_dog
 Attribute	 Data stored in an object	             my_dog.name
 Method	     Function that belongs to a class	     my_dog.bark()
 
+🧩 1. Instance Method
+✅ What It Is:
+A method that works with a specific object.
+
+Has access to the object’s data via self.
+
+🧪 Example:
+python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def bark(self):  # Instance method
+        print(f"{self.name} says Woof!")
+🔧 Usage:
+python
+d = Dog("Buddy")
+d.bark()  # Output: Buddy says Woof!
+🏛️ 2. Class Method
+✅ What It Is:
+Works with the class itself, not just one object.
+
+Uses @classmethod decorator.
+
+First parameter is cls (refers to the class).
+
+🧪 Example:
+python
+class Dog:
+    species = "Canine"
+
+    @classmethod
+    def get_species(cls):
+        return cls.species
+🔧 Usage:
+python
+print(Dog.get_species())  # Output: Canine
+🧰 3. Static Method
+✅ What It Is:
+Doesn’t access object (self) or class (cls).
+
+Just a utility function inside the class.
+
+Uses @staticmethod decorator.
+
+🧪 Example:
+python
+class MathTools:
+    @staticmethod
+    def add(x, y):
+        return x + y
+🔧 Usage:
+python
+print(MathTools.add(3, 4))  # Output: 7
+🏡 4. Property Method
+✅ What It Is:
+Makes a method act like a read-only attribute.
+
+Uses @property decorator.
+
+Can also use @<property>.setter to allow controlled writing.
+
+🧪 Example:
+python
+class Rectangle:
+    def __init__(self, width, height):
+        self._width = width
+        self._height = height
+
+    @property
+    def area(self):
+        return self._width * self._height
+
+    @property
+    def width(self):
+        return self._width
+
+    @width.setter
+    def width(self, value):
+        if value < 0:
+            raise ValueError("Width must be positive")
+        self._width = value
+🔧 Usage:
+python
+r = Rectangle(10, 5)
+print(r.area)     # Output: 50
+r.width = 20
+print(r.area)     # Output: 100
+🧠 Summary Table
+Method Type	Decorator	First Parameter	Accesses self	Accesses cls	Use Case
+Instance Method	None	self	✅ Yes	❌ No	Work with object data
+Class Method	@classmethod	cls	❌ No	✅ Yes	Work with class-level data
+Static Method	@staticmethod	None	❌ No	❌ No	Utility function inside a class
+Property Method	@property	self	✅ Yes	❌ No	Access method like an attribute
+🧪 Bonus: Real-Life Analogy
+Imagine a Car class:
+
+drive() → instance method (each car drives differently)
+
+get_total_cars() → class method (how many cars exist)
+
+convert_km_to_miles() → static method (just math)
+
+speed → property (calculated from engine and gear)
